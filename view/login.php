@@ -1,0 +1,16 @@
+<?php
+    namespace Projeto\view;
+    require_once("../model/Pessoa.php");
+    use Projeto\model\Pessoa;
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ola</h1>
+</body>
+</html>
