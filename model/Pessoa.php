@@ -2,11 +2,11 @@
     namespace Projeto\model;
 
     class Pessoa{
-        private string $usuario;
-        private int $senha;
+        private string $login;
+        private string $senha;
 
-        public function __construct(string $usuario, int $senha){
-            $this-> usuario = $usuario;
+        public function __construct(string $login, string $senha){
+            $this-> login = $login;
             $this-> senha = $senha;
         }
 
@@ -17,11 +17,6 @@
         public function __set(string $variavel, string $novodado):void
         {
             $this-> variavel = $novoDado;
-        }
-            function logar(){
-                if($this->usuario == $usuariobd && $this->senha == $senhabd){
-                header('location: login.php');
-            }
-        }//fim do projeto
-    }
+        }  
+    }//fim do projeto
 ?>

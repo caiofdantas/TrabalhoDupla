@@ -1,43 +1,45 @@
-<?php
-    namespace Projeto\view;
+<?php 
     namespace Projeto\view;
     require_once("../model/Pessoa.php");
-    require_once("../model/Cadastro.php");
     use Projeto\model\Pessoa;
-    use Projeto\model\Cadastro;
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <link rel="stylesheet" href="estilo.css">
+    <title>Cadastrar</title>
 </head>
 <body>
-    <h1>Login</h1>
-    <Form method="POST">
-        <label>Usuario: </label>
-        <input type="text" name="nomebd" id="nomebd">
-        <br><br>
-        <label>Senha: </label>
-        <input type ="number" name="senhabd" id="senhabd">
-        <br><br>
-
-        <button type = "submit">Entrar
-        <?php  
-            $usuario = $_POST['nomebd'];
-            $senha  = $_POST['senhabd'];
-
-            session_start();
-
-            $pessoa = new Pessoa($usuario, $senha,$_SESSION['cadastro']);//Instanciando a classe
-            $pessoa->logar();//Método que faz o login
-
-        ?>
-        </button>
-
-        
-    </Form>
-    <button type = "submit"><a href="cadastrarLogin.php">Cadastrar</a></button>
+    <div>
+        <form method="POST"class="Info">
+            <h1>Cadastro</h1>
+            <label>Nome: </label>
+            <input type="text" name="login" id="login">
+            <br><br>
+            <label>E-mail: </label>
+            <input type="text" name="email" id="email">
+            <br><br>
+            <label>Senha: </label>
+            <input type="number" name="senhabd" id="senhabd">
+            <br><br>
+            <button type="submit">Cadastrar
+                <?php
+                    session_start();
+                    if(isset($_POST['login'])){
+                        $login = $_POST['login'];
+                        $email = $_POST['email'];
+                        $senha  = $_POST['senhabd'];
+                        $cadastro = new Pessoa($login, $senha, $email);//Instanciando a classe
+                        $_SESSION['login'] = $login;
+                        $_SESSION['senha'] = $senha;
+                    }
+                ?>
+            </button>
+            <br><br>
+            <button><a href="login.php">Já tem login? Clique aqui </a></button>
+        </form>
+    </div>
 </body>
 </html>
